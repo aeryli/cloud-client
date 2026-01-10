@@ -57,7 +57,7 @@ Use getVariable("☁ variable") to read variables.
   </style>
 <body>
 <p class="varC" id="varC">☁ variable</p>
-<p class="text" id="text">1.0000</p>
+<p class="text" id="text">1.000</p>
 <div>
 <button class="var" onclick="vartoget = prompt('Get Variable:');">get variable</button>
 <button class="var" onclick="setVariable(prompt('Set Variable:'), prompt('Number:'));">set variable</button>
@@ -67,7 +67,7 @@ Use getVariable("☁ variable") to read variables.
 </div>
 
 <script>
-	var ws = new WebSocket("http://192.168.50.197:9080/");
+	var ws = new WebSocket(prompt('Server Address:'));
         var usrName = "user"
 	var variables = {};
 	
