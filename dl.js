@@ -1,8 +1,14 @@
-function dl() {
-  let dUrl = "https://github.com/aeryli/cloud-client/raw/refs/heads/main/index.html"
-  let downloading = browser.downloads.download({
-    url: dUrl,
-    filename: "index.html",
-    conflictAction: "uniquify",
-  });
+async function downloadFile(url, fileName) {
+  const response = await fetch(url);
+  const blob = await response.blob(); // Convert response to binary data
+  const link = document.createElement('a');
+  
+  link.href = URL.createObjectURL(blob); // Create temporary local URL
+  link.download = fileName; // Suggested filename
+  document.body.appendChild(link);
+  link.click(); // Programmatically click to trigger download
+  
+  // Clean up
+  document.body.removeChild(link);
+  URL.revokeObjectURL(link.href);
 }
