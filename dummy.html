@@ -1,6 +1,4 @@
-<head>
-  <title>Dummy Client - Scratch</title>
-  <style>
+<style>
     body {
       font-family: "Helvetica Neue", Helvetica, sans-serif;
       display: flex;
@@ -49,10 +47,30 @@
       -webkit-text-stroke: 1px white;
     }
   </style>
-</head>
-<p class="varC" id="varC">☁ Variable</p>
+
+<p class="varC" id="varC">☁ variable</p>
 <p class="text" id="text">1.000</p>
-<button class="var">get variable</button>
-<button class="var">set variable</button>
+<button class="var" onclick="vartoget = prompt('Get Variable:');">get variable</button>
+<button class="var" onclick="setVariable(prompt('Set Variable:'), prompt('Number:'));">set variable</button>
 <button class="var">set server</button>
-<button class="var">set username</button>
+<button class="var" onclick="usrName = prompt('New Username:');">set username</button>
+
+<script>
+    var usrName = "user"
+	var variables = {};
+	
+	function setVariable(name, value) {
+	  console.log(`Setting variable: ${name} = ${value}`);
+	  variables[name] = value;
+	}
+	
+	function getVariable(name) {
+	  return variables[name];
+	}
+	
+	var vartoget = "☁ variable"
+	setInterval(() => {
+	   document.getElementById('text').textContent = getVariable(vartoget);
+           document.getElementById('varC').textContent = vartoget;
+	}, 100);
+</script>
