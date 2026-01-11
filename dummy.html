@@ -1,4 +1,15 @@
-<style>
+<!--
+Example client that can run in your browser.
+
+Open this page, then open your browser console (usually F12 or Right Click -> Inspect Element)
+
+Use setVariable("☁ variable", "1") to set variables.
+Use getVariable("☁ variable") to read variables.
+-->
+<head>
+  <title>Server Client - Scratch</title>
+  <script>var vartoget = "☁ variable"</script>
+  <style>
     body {
       font-family: "Helvetica Neue", Helvetica, sans-serif;
       display: flex;
@@ -47,13 +58,17 @@
       -webkit-text-stroke: 1px white;
     }
   </style>
-
+</head>
+<body>
 <p class="varC" id="varC">☁ variable</p>
 <p class="text" id="text">1.000</p>
+<div>
 <button class="var" onclick="vartoget = prompt('Get Variable:');">get variable</button>
-<button class="var" onclick="setVariable(prompt('Set Variable:'), prompt('Number:'));">set variable</button>
+<button class="var" onclick="setVariable(vartoget, prompt('Number:'));">set variable</button>
 <button class="var">set server</button>
 <button class="var" onclick="usrName = prompt('New Username:');">set username</button>
+
+</div>
 
 <script>
     var usrName = "user"
@@ -68,9 +83,10 @@
 	  return variables[name];
 	}
 	
-	var vartoget = "☁ variable"
+	vartoget = "☁ variable"
 	setInterval(() => {
 	   document.getElementById('text').textContent = getVariable(vartoget);
-           document.getElementById('varC').textContent = vartoget;
+       document.getElementById('varC').textContent = vartoget;
 	}, 100);
 </script>
+</body>
