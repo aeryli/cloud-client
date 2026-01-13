@@ -1,2 +1,2 @@
 ## Scratch Cloud Client
-A website for a scratch client to run in
+A website to interact with a scratch server.
